@@ -1,0 +1,86 @@
+  .Login {
+    text-align: center;
+  }
+  .Login .img-responsive {
+    margin: 10% auto;
+  }
+
+  .Login .form-control {
+      width: 250px;
+  }
+  .Login form {
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .Login form input {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+    outline: 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 250px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    -webkit-transition-duration: 0.25s;
+            transition-duration: 0.25s;
+    font-weight: 300;
+  }
+  
+  .Login form input:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .Login form input:focus {
+    background-color: white;
+    width: 300px;
+    color: #2EF9A0;
+  }
+  
+  .Login form button {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #2EF9A0;
+    border-radius: 3px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-transition-duration: 0.25s;
+            transition-duration: 0.25s;
+  }
+  
+  .Login form button:hover {
+    background-image: -webkit-linear-gradient(top left, #0cb49b 0%, #4CC1FC 100%);
+    background-image: -moz-linear-gradient(top left, #0cb49b 0%, #4CC1FC 100%);
+    background-image: -o-linear-gradient(top left, #0cb49b 0%, #4CC1FC 100%);
+    background-image: linear-gradient(to bottom right, #0cb49b 0%, #4CC1FC 100%);
+    text-decoration: none !important;
+  }
+  
+  .Login p.signup {
+    color: white;
+    margin-top: 30px;
+    font-size: 16px;
+  }
+
+  .Login a.signup-link {
+      color: #337ab7;
+      text-transform: none;
+  }
+  
+  .Login a.signup-link:hover{
+    color: #EF4D7B;
+    text-decoration: none !important;
+    cursor: pointer;
+    background-image: none;
+  }

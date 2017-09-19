@@ -1,0 +1,140 @@
+/*
+Name: Screen Time Web App
+Description: Common Styles
+Authors: Micaela Linda Villani & JBTellez
+Tags: Ironhack Final Project - Full Stack Javascript App + Angularjs for the Front-end
+*/
+
+/* Fonts
+---headings
+font-family: 'Godsown';
+--paragraphs
+font-family: 'Montserrat', sans-serif; 
+font-family: 'Merriweather', serif;
+*/
+
+@font-face {
+    font-family: Godsown;
+    src: url('../assets/fonts/Godsownjunkyardfree.otf');
+}
+
+/* KID SETTINGS */
+.kid-settings {
+    /* border: 2px solid red;   */
+    height: 100%;
+    width: 35vw; 
+    margin: 0px; 
+    /* padding: 7px 0px 0px 10px; */
+    background-color: #010F20;
+    /* opacity: 0.8; */
+    overflow: scroll;
+}
+
+.kid-title {
+    text-transform: uppercase;
+    font-family: 'Godsown';
+    color: RGBA(76, 193, 252, 1.00);
+    text-align: center;
+}
+
+p.avatar {
+    color:#A166AB;
+    font-size: 22px !important;
+}
+
+.kid-avatar {
+    height: 70px;
+    float: left;
+    margin: 5px;
+}
+
+ /* .checkMenu > input {
+    visibility: hidden;
+}  */
+
+.check-avatar {
+    display: inline;
+}
+
+input:checked {
+  background-color: white;
+}
+
+.control-label {
+    margin: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Godsown';
+    color: #F37055;
+}
+
+label.age {
+    color: #EF4D7B;
+}
+
+/* SCREENTIME */
+.screentime {
+    width: 10%;
+    float: left;
+    margin: 20px 0px 0px 0px;
+}
+
+.screentime-input {
+    width: 10%;
+    float: left;
+    margin: 20px 0px 0px 130px;
+}
+
+/* BEDTIME */
+.bedtime-container {
+    /* border: 2px solid white;  */
+    height: 50px; 
+}
+
+.bedtime-icn {
+    height: 30px;
+    margin: 0px;
+    float: left;
+}
+
+.bedtime-p {
+    float: left;
+    padding: 5px;
+    margin-left: 5px;
+    color: #F79432;
+    font-size: 20px;
+}
+
+/* TIMEPICK TABLE */
+.bedtime-sel-container {
+    border: 2px dotted #0CB49B;    
+    margin: 0 auto;
+    padding: 20px;
+}
+.timepick {
+    width: 200px;
+    /* border: 1px dotted #6CBC82;  */
+    margin: 0 auto;   
+    float: left;
+}
+
+.timepick-p {
+    color: #4CC1FC;
+}
+
+/* SUBMIT BUTTON */
+.submit-row {
+    padding: 20px 0px;
+}
+
+.submit-btn {
+    background-color: #EF4D7B;
+    color: white;
+    margin: 0 auto; 
+    border: none;
+    font-style: 20px;
+    height: 30px;
+    text-transform: uppercase;
+    font-family: 'Godsown';
+}
+

@@ -1,0 +1,67 @@
+@font-face {
+    font-family: Godsown;
+    src: url('../assets/fonts/Godsownjunkyardfree.otf');
+}
+
+
+/* BODY */
+/* TITLE */
+.title-row {
+    position: relative;
+    top: 27%;
+    text-align: center;
+}
+
+h1.title {
+    font-family: Godsown;
+    color: white;
+    z-index: 1;
+    font-size: 65px !important;
+    text-transform: uppercase;
+}
+span.color {
+    color: #4CC1FC;
+}
+
+/* ICONS */
+.wrapper {
+    position: relative;
+    top: 34%;
+    text-align: center;
+    color: white;
+    background-color: #010F20;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.icon-col {
+    cursor: pointer;
+}
+
+div.icon-col:hover {
+    opacity: 1;
+    -moz-box-shadow: 0 8px 30px 3px #000000;
+    -webkit-box-shadow: 0 8px 30px 3px #000000;
+    box-shadow: 0 8px 30px 3px #000000;
+    padding-top: 20px;
+}
+
+.icons {
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.Family .icon-p {
+    font-family: 'Montserrat', sans-serif; 
+    margin-bottom: 15px;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 200;
+    color: white;
+    text-transform: uppercase;
+}
+
+a:hover {
+    text-decoration: none !important;
+}

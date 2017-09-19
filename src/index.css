@@ -1,0 +1,40 @@
+/* body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+} */
+/*
+Name: Screen Time Web App
+Description: Common Styles
+Authors: Micaela Linda Villani & JBTellez
+Tags: Ironhack Final Project - Full Stack Javascript App + Angularjs for the Front-end
+*/
+
+/* Fonts
+---headings
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Merriweather Sans', sans-serif;
+--paragraphs
+font-family: 'Montserrat', sans-serif; 
+font-family: 'Merriweather', serif;
+*/
+
+/* ---- reset ---- */
+html, body, canvas { 
+  background-color: #010913;
+  font-family: 'Montserrat', sans-serif; 
+  margin: 0;
+  padding: 0;
+  color: #EF4D7B;
+}
+
+*:before *:after {
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+

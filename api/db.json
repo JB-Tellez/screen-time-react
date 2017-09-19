@@ -1,0 +1,20 @@
+{
+    "families": [{
+        "id": "1",
+        "name": "Jackson",
+        "password": "pass",
+        "children": [{
+                "id": "1",
+                "name": "Millie",
+                "gender": "female",
+                "viewings": []
+            },
+            {
+                "id": "2",
+                "name": "Michael",
+                "gender": "male",
+                "viewings":[]
+            }
+        ]
+    }]
+}

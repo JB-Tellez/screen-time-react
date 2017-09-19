@@ -1,0 +1,15 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.slick-slider {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.img-container {
+    padding: 10px;
+}
