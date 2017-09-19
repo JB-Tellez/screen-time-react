@@ -36,7 +36,7 @@ export default class componentName extends Component {
         return (
             <div>
                 <h1>Dashboard</h1>
-                <Chart />
+                <Chart family={this.props.family} />
                 <ul>
                     {this.props.family.children.map(kid => <li onClick={ () => this.showKid(kid)} key={kid.id}>{kid.name}</li>)}
                 </ul>
