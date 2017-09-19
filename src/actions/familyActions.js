@@ -1,33 +1,31 @@
-import * as types from './actionTypes';
+import * as types from './actionTypes'; 
+import DB from '../api/DB';
 
-const apiKey = 'DANGER'
 
-function url() {
-  return 'http://localhost:3004/families';
-}
+const db = new DB();
 
 export function receiveFamily(json) {
   return {type: types.RECEIVE_FAMILY, family: json || null};
 }
 
 export function fetchFamily(name, password) {
-  
   return dispatch => {
-    return fetch(url() + '?name=' + name + '&password=' + password, {
-      method: 'GET',
-      mode: 'cors',
-      credentials: 'include',
-      headers: {
-        'x-api-key': apiKey,
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => {
-      return response.json()
-    })
-    .then(json => dispatch(receiveFamily(json[0])))
-    .catch(reason => console.log(reason));
-  };
+    return db.getFamily(name, password)
+      .then( (fam) => {
+        dispatch(receiveFamily(fam))
+      })
+  }
+}
+
+export function addFamily(name, password) {
+  console.log('[familyActions] addFamily')
+  return dispatch => {
+    return db.addFamily(name, password)
+      .then( (fam) => {
+        dispatch(receiveFamily(fam))
+      })
+  }
+  
 }
 
 export function clearFamily() {
