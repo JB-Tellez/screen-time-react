@@ -1,4 +1,4 @@
-export default function delay(t) {
+export function delay(t) {
     return new Promise(function(resolve) { 
         setTimeout(resolve, t)
     }); 
