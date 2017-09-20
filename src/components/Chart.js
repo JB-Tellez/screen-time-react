@@ -1,6 +1,14 @@
 import React from 'react';
 import {Line} from 'react-chartjs-2';
 import './Chart.css'
+import moment from 'moment'
+
+const getMinutesWatched = (viewing) => {
+    const startTime = moment(viewing.startTime)
+    const endTime = moment(viewing.endTime)
+
+    return endTime.diff(startTime, 'minutes')
+}
 
 const data = {
   labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -52,11 +60,24 @@ const data = {
 
 export default class Chart extends React.Component {
 
+  constructor(props) {
+    super(props)
+
+
+    let times = this.props.family.children[0].viewings.map( viewing => getMinutesWatched(viewing))
+
+
+    data.datasets[0].data = times
+
+    this.state = {
+      data : data
+    }
+  }
   render() {
     return (
       <div className="Chart">
         {/* <h2>Line Example</h2> */}
-        <Line data={data} width={100}
+        <Line data={this.state.data} width={100}
     height={400}
     options={{
         maintainAspectRatio: false
