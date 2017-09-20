@@ -1,56 +1,91 @@
 import React, { Component } from 'react'
-import './KidDetails.css'
 import moment from 'moment'
+import DateTimePicker from 'react-widgets/lib/DateTimePicker'
 import IconOne from '../assets/images/100-icon.png'
 import IconTwo from '../assets/images/teen-boy-icon.png'
 import IconThree from '../assets/images/heartlogo.png'
 import IconFour from '../assets/images/robot-green.png'
 import Logo from '../assets/images/xs-screentime-logo.png'
 import Bedtime from '../assets/images/bedtime.png'
-import TimePicker from './TimePicker'
+import './KidDetails.css'
 
+const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY']
 
-export default class componentName extends Component {
+const TimePicker = ({day, bedtime}) => (
+    <div className="timepick col-sm-6 col-md-6 col-lg-6">
+    <p className="timepick-p"> {day} </p>
+    <DateTimePicker date={false} defaultValue={bedtime} onChange={value => console.log(value)} />
+</div>
+    
+)
+export default class KidDetails extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {...props.kid}
+        this.changeHandler = this.changeHandler.bind(this)
+        this.submitHandler = this.submitHandler.bind(this)
+    }
+
+    getBedtime(dayIndex) {
+        return new Date(this.state.bedtimes[dayIndex])
+    }
+
+    changeHandler(event) {
+       
+        const name = event.target.name
+       
+        let value = event.target.value
+       
+        if (event.target.type === 'number' || event.target.type === 'radio') {
+            value = +value
+        }
+
+        this.setState({
+            [name]: value
+        })
+    }
+
+    submitHandler(event) {
+        event.preventDefault()
+        this.props.submitHandler(this.state)
+    }
+
     render() {
-
-        const format = 'h:mm a';
-
-        const now = moment().hour(0).minute(0);
 
         return (
             <div>
-
                 <div className="container row kid-settings">
-                    <h2 className="kid-title"> kid?.name </h2>
-                    <form className="form" >
+                    {/* <h2 className="kid-title"> {this.state.name} </h2> */}
+                    <form className="form" onSubmit={this.submitHandler} >
                         {/* <!-- LEFT COLUMN --> */}
                         <div className="col-sm-12 col-md-12 col-lg-12">
                             <p className="control-label avatar">Avatar</p>
                             {/* <!-- FIRST AVATAR --> */}
                             <div className="form-group check-avatar">
                                 <label className="checkMenu" htmlFor="icon-one" id="icon-one">
-                                    <input type="radio" name="avatar" value="icon_one" id="icon-one" />
+                                    <input type="radio" name="avatar" value="1" id="icon-one" onChange={this.changeHandler} checked={this.state.avatar === 1} />
                                     <img src={IconOne} alt="kid avatar" className="kid-avatar" />
                                 </label>
                             </div>
                             {/* <!--SECOND AVATAR --> */}
                             <div className="form-group check-avatar">
                                 <label className="checkMenu" htmlFor="icon-two">
-                                    <input type="radio" name="avatar" value="icon_two" id="icon-two" />
+                                    <input type="radio" name="avatar" value="2" id="icon-two" onChange={this.changeHandler} checked={this.state.avatar === 2} />
                                     <img src={IconTwo} alt="kid avatar" className="kid-avatar" />
                                 </label>
                             </div>
                             {/* <!-- THIRD AVATAR --> */}
                             <div className="form-group check-avatar">
                                 <label className="checkMenu" htmlFor="icon-three">
-                                    <input type="radio" name="avatar" value="icon_three" id="icon-three" />
+                                    <input type="radio" name="avatar" value="3" id="icon-three" onChange={this.changeHandler} checked={this.state.avatar === 3} />
                                     <img src={IconThree} alt="kid avatar" className="kid-avatar" />
                                 </label>
                             </div>
                             {/* <!-- FOURTH AVATAR --> */}
                             <div className="form-group check-avatar">
                                 <label className="checkMenu" htmlFor="icon-four">
-                                    <input type="radio" name="avatar" value="icon_four" id="icon-four" />
+                                    <input type="radio" name="avatar" value="4" id="icon-four" onChange={this.changeHandler} checked={this.state.avatar === 4} />
                                     <img src={IconFour} alt="kid avatar" className="kid-avatar" />
                                 </label>
                             </div>
@@ -59,12 +94,12 @@ export default class componentName extends Component {
                             <div className="text-form-container">
                                 <div className="form-group control">
                                     <label className="control-label" htmlFor="Name"> Name </label>
-                                    <input id="Name" name="Name" type="text" placeholder="name" className="form-control input-md" />
+                                    <input value={this.state.name} onChange={this.changeHandler} id="Name" name="name" type="text" placeholder="name" className="form-control input-md" />
                                 </div>
                                 {/* <!-- AGE INPUT --> */}
                                 <div className="form-group">
                                     <label className="control-label age" htmlFor="Age"> Age </label>
-                                    <input id="Age" name="Age" type="number" placeholder="age" className="form-control input-md" />
+                                    <input value={this.state.age} onChange={this.changeHandler} id="Age" name="age" type="number" placeholder="age" className="form-control input-md" />
                                 </div>
                                 {/* <!-- SCREEN TIME  --> */}
                                 <div className="form-group">
@@ -72,7 +107,7 @@ export default class componentName extends Component {
                                         <img src={Logo} className="screentime-logo" alt="logo"
                                         />
                                     </label>
-                                    <input id="screentime" name="screentime" type="number" placeholder="minutes" className="form-control input-md" />
+                                    <input value={this.state.minutesPerWeek} onChange={this.changeHandler}  id="screentime" name="minutesPerWeek" type="number" placeholder="minutes" className="form-control input-md" />
                                 </div>
                                 {/* <!-- BEDTIME -->  */}
                                 <div className="form-group bedtime-container">
@@ -85,50 +120,25 @@ export default class componentName extends Component {
                                 {/* <!-- FIRST ROW --> */}
                                 <div className="bedtime-sel-container">
                                     <div className="row first-row">
-                                        <div className="timepick col-sm-4 col-md-4 col-lg-4">
-                                            <p className="timepick-p"> MONDAY </p>
-                                            <TimePicker />
-                                            {/* <timepicker [(ngModel)]="kid.bedTimes[0]" name="bedtime0" [mousewheel]="true"></timepicker>  */}
-                                        </div>
-
-                                        <div className="timepick col-sm-4 col-md-4 col-lg-4">
-                                            <p className="timepick-p"> TUESDAY </p>
-                                            {/* <timepicker [(ngModel)]="kid.bedTimes[1]" name="bedtime1" [mousewheel]="true"></timepicker>  */}
-                                        </div>
+                                        <TimePicker day="MONDAY" bedtime={this.getBedtime(1)} />
+                                        <TimePicker day="TUESDAY" bedtime={this.getBedtime(2)}/>   
                                     </div>
 
                                     {/* <!-- SECOND ROW --> */}
                                     <div className="row second-row">
-                                        <div className="timepick col-sm-4 col-md-4 col-lg-4">
-                                            <p className="timepick-p"> WEDNESDAY </p>
-                                            {/* <timepicker [(ngModel)]="kid.bedTimes[2]" name="bedtime2" [mousewheel]="true"></timepicker>  */}
-                                        </div>
-
-                                        <div className="timepick col-sm-4 col-md-4 col-lg-4">
-                                            <p className="timepick-p"> THURSDAY </p>
-                                            {/* <timepicker [(ngModel)]="kid.bedTimes[3]" name="bedtime3" [mousewheel]="true"></timepicker>  */}
-                                        </div>
+                                        <TimePicker day="WEDNESDAY" bedtime={this.getBedtime(3)}/>
+                                        <TimePicker day="THURSDAY" bedtime={this.getBedtime(4)}/> 
                                     </div>
 
                                     {/* <!-- THIRD ROW --> */}
                                     <div className="row third-row">
-                                        <div className="timepick col-sm-4 col-md-4 col-lg-4">
-                                            <p className="timepick-p"> FRIDAY </p>
-                                            {/* <timepicker [(ngModel)]="kid.bedTimes[4]" name="bedtime4" [mousewheel]="true"></timepicker>  */}
-                                        </div>
-
-                                        <div className="timepick col-sm-4 col-md-4 col-lg-4">
-                                            <p className="timepick-p"> SATURDAY </p>
-                                            {/* <timepicker [(ngModel)]="kid.bedTimes[5]" name="bedtime5" [mousewheel]="true"></timepicker>  */}
-                                        </div>
+                                        <TimePicker day="FRIDAY" bedtime={this.getBedtime(5)}/>
+                                        <TimePicker day="SATURDAY" bedtime={this.getBedtime(6)}/> 
                                     </div>
 
                                     {/* <!-- FOURTH ROW --> */}
                                     <div className="row fourth-row">
-                                        <div className="timepick ol-sm-4 col-md-4 col-lg-4">
-                                            <p className="timepick-p"> SUNDAY </p>
-                                            {/* <timepicker [(ngModel)]="kid.bedTimes[6]" name="bedtime6" [mousewheel]="true"></timepicker>  */}
-                                        </div>
+                                        <TimePicker day="SUNDAY" bedtime={this.getBedtime(0)}/>
                                     </div>
                                 </div>
 

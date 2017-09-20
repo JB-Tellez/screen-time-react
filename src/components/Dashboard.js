@@ -11,26 +11,27 @@ export default class componentName extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            modal: false,
-            kidModal: false,
             kid: null
         }
         this.toggle = this.toggle.bind(this)
         this.showKid = this.showKid.bind(this)
+        this.kidChangedHandler = this.kidChangedHandler.bind(this)
     }
 
     toggle() {
         this.setState({
-            modal: !this.state.modal
+            kid: null
         })
     }
 
     showKid(kid) {
         this.setState({
-            kid,
-            kidModal : !this.state.kidModal,
-            
+            kid
         })
+    }
+
+    kidChangedHandler(kid) {
+        alert(kid.name)
     }
     render() {
         return (
@@ -41,25 +42,12 @@ export default class componentName extends Component {
                     {this.props.family.children.map(kid => <li onClick={ () => this.showKid(kid)} key={kid.id}>{kid.name}</li>)}
                 </ul>
 
-                <Modal isOpen={this.state.kidModal} toggle={this.showKid}>
+                {/* <Button color="danger" onClick={this.toggle}>Add Kid</Button> */}
+
+                <Modal isOpen={!!this.state.kid} toggle={this.toggle}>
                     <ModalBody>
-                        {this.state.kid && this.state.kid.name}
+                        <KidDetails kid={this.state.kid} submitHandler={this.kidChangedHandler} />
                     </ModalBody>
-                </Modal>
-
-
-                <Button color="danger" onClick={this.toggle}>Add Kid</Button>
-                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>
-                        Add Kid
-                    </ModalHeader>
-                    <ModalBody>
-                        <KidDetails />
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                    </ModalFooter>
-
                 </Modal>
             </div>
         )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.css';
+import 'react-widgets/dist/css/react-widgets.css'
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -10,6 +11,12 @@ import configureStore from './store/configureStore';
 import {
   BrowserRouter as Router
 } from 'react-router-dom'
+
+import moment from 'moment'
+import momentLocalizer from 'react-widgets-moment'
+
+moment.locale('en')
+momentLocalizer()
 
 const store = configureStore();
 
