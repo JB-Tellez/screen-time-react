@@ -28,6 +28,10 @@ export function addFamily(name, password) {
   
 }
 
+export function updateKid(kid) {
+  return {type: types.UPDATE_KID, kid:kid}
+}
+
 export function clearFamily() {
   return {type: types.SET_FAMILY, family: null}
 }

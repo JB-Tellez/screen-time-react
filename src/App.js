@@ -100,7 +100,7 @@ class App extends Component {
               <Route path="/register" render={props => <Login {...this.getLoginProps(false)} {...props} />} />
               <PrivateRoute path="/family" authed={this.loggedIn()} component={props => <Family family={this.props.family} kidSelected={this.kidSelected} {...props} />} />
               <PrivateRoute path="/kid/:id" authed={this.loggedIn()} component={props => <Kid kid={this.getKid(props.match.params.id)} {...props} />} />
-              <PrivateRoute authed={this.loggedIn()} path='/dashboard' component={props => <Dashboard family={this.props.family} {...props} />} />
+              <PrivateRoute authed={this.loggedIn()} path='/dashboard' component={props => <Dashboard family={this.props.family} familyActions={this.props.familyActions} {...props} />} />
             </div>
           </div>
         </div>

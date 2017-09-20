@@ -1,8 +1,12 @@
 import React from 'react'
 import './Family.css'
 import FamilyIcon from '../assets/images/family-icon-big.png'
-import GirlIcon from '../assets/images/little-girl-icon.png'
-import BoyIcon from '../assets/images/robot-big.png'
+import IconOne from '../assets/images/little-girl-icon.png'
+import IconTwo from '../assets/images/teen-boy-icon.png'
+import IconThree from '../assets/images/heartlogo.png'
+import IconFour from '../assets/images/robot-big.png'
+
+const icons = [IconOne, IconTwo, IconThree, IconFour]
 
 export default (props) => (
     <div className="Family">
@@ -29,7 +33,7 @@ export default (props) => (
 
                     <div className="col-sm-12 col-md-4 col-lg-4 icon-col" onClick={() => props.kidSelected(kid)} key={kid.id} >
                         <a>
-                            <img className="responsive-image icons" src={kid.gender === 'female' ? GirlIcon : BoyIcon} alt="kid icon"/>
+                            <img className="responsive-image icons" src={icons[kid.avatar - 1]} alt={"Icon " + kid.avatar}/>
                         </a>
                         <br />
                         <p className="icon-p"> {kid.name}  </p>
