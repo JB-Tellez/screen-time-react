@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-import DateTimePicker from 'react-widgets/lib/DateTimePicker'
+import TimePicker from './TimePicker'
 import IconOne from '../assets/images/100-icon.png'
 import IconTwo from '../assets/images/teen-boy-icon.png'
 import IconThree from '../assets/images/heartlogo.png'
@@ -9,15 +9,6 @@ import Logo from '../assets/images/xs-screentime-logo.png'
 import Bedtime from '../assets/images/bedtime.png'
 import './KidDetails.css'
 
-const days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY']
-
-const TimePicker = ({day, bedtime}) => (
-    <div className="timepick col-sm-6 col-md-6 col-lg-6">
-    <p className="timepick-p"> {day} </p>
-    <DateTimePicker date={false} defaultValue={bedtime} onChange={value => console.log(value)} />
-</div>
-    
-)
 export default class KidDetails extends Component {
 
     constructor(props) {
@@ -25,6 +16,7 @@ export default class KidDetails extends Component {
         this.state = {...props.kid}
         this.changeHandler = this.changeHandler.bind(this)
         this.submitHandler = this.submitHandler.bind(this)
+        this.bedtimeChangeHandler = this.bedtimeChangeHandler.bind(this)
     }
 
     getBedtime(dayIndex) {
@@ -44,6 +36,12 @@ export default class KidDetails extends Component {
         this.setState({
             [name]: value
         })
+    }
+
+    bedtimeChangeHandler(info) {
+        let bedtimes = [...this.state.bedtimes]
+        bedtimes[moment().day(info.day).weekday()] = info.time
+        this.setState({bedtimes})
     }
 
     submitHandler(event) {
@@ -120,25 +118,25 @@ export default class KidDetails extends Component {
                                 {/* <!-- FIRST ROW --> */}
                                 <div className="bedtime-sel-container">
                                     <div className="row first-row">
-                                        <TimePicker day="MONDAY" bedtime={this.getBedtime(1)} />
-                                        <TimePicker day="TUESDAY" bedtime={this.getBedtime(2)}/>   
+                                        <TimePicker day="MONDAY" bedtime={this.getBedtime(1)} onChange={this.bedtimeChangeHandler} />
+                                        <TimePicker day="TUESDAY" bedtime={this.getBedtime(2)} onChange={this.bedtimeChangeHandler} />   
                                     </div>
 
                                     {/* <!-- SECOND ROW --> */}
                                     <div className="row second-row">
-                                        <TimePicker day="WEDNESDAY" bedtime={this.getBedtime(3)}/>
-                                        <TimePicker day="THURSDAY" bedtime={this.getBedtime(4)}/> 
+                                        <TimePicker day="WEDNESDAY" bedtime={this.getBedtime(3)} onChange={this.bedtimeChangeHandler} />
+                                        <TimePicker day="THURSDAY" bedtime={this.getBedtime(4)} onChange={this.bedtimeChangeHandler} /> 
                                     </div>
 
                                     {/* <!-- THIRD ROW --> */}
                                     <div className="row third-row">
-                                        <TimePicker day="FRIDAY" bedtime={this.getBedtime(5)}/>
-                                        <TimePicker day="SATURDAY" bedtime={this.getBedtime(6)}/> 
+                                        <TimePicker day="FRIDAY" bedtime={this.getBedtime(5)} onChange={this.bedtimeChangeHandler} />
+                                        <TimePicker day="SATURDAY" bedtime={this.getBedtime(6)} onChange={this.bedtimeChangeHandler} /> 
                                     </div>
 
                                     {/* <!-- FOURTH ROW --> */}
                                     <div className="row fourth-row">
-                                        <TimePicker day="SUNDAY" bedtime={this.getBedtime(0)}/>
+                                        <TimePicker day="SUNDAY" bedtime={this.getBedtime(0)} onChange={this.bedtimeChangeHandler} />
                                     </div>
                                 </div>
 
