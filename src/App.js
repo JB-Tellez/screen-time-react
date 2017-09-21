@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Menu from './components/Menu'
 import Login from './components/Login'
-import Register from './components/Register'
 import Landing from './components/Landing'
 import Family from './components/Family'
 import Kid from './components/Kid'

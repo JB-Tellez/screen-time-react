@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Chart from './Chart'
-import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
+import { Button, Modal, ModalBody } from 'reactstrap'
 import KidDetails from './KidDetails'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';

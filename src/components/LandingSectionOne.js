@@ -5,7 +5,6 @@ import ComputerImage from '../assets/images/computer-small.png'
 import FamilyImage from '../assets/images/family-small.png'
 import RobotImage from '../assets/images/robot-icon.png'
 import ArrowImage from '../assets/images/arrow.png'
-import IconImage from '../assets/images/family-icon.png'
 
 export default () => (
 

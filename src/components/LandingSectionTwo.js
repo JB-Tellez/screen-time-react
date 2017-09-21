@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './LandingSectionTwo.css'
 import BoyIcon from '../assets/images/boy.png'
 import BedtimeIcon from '../assets/images/bedtime.png'
@@ -23,22 +23,22 @@ export default (props) => (
         <div className="row choose-first-row">
 
             <div className="col-sm-12 col-md-3 col-lg-3">
-                <img className="why-icons first-icon" src={BoyIcon} />
+                <img className="why-icons first-icon" src={BoyIcon} alt="boy" />
                 <p className="why-icons-p">Your children <br /> will be able to :</p>
             </div>
 
             <div className="col-sm-12 col-md-3 col-lg-3">
-                <img className="why-icons" src={BedtimeIcon} />
+                <img className="why-icons" src={BedtimeIcon} alt="bedtime"/>
                 <p className="why-icons-p"> Remember their <br /> daily bedtime </p>
             </div>
 
             <div className="col-sm-12 col-md-3 col-lg-3">
-                <img className="why-icons" src={TimerIcon} />
+                <img className="why-icons" src={TimerIcon} alt="time"/>
                 <p className="why-icons-p"> Learn to <br /> manage their time </p>
             </div>
 
             <div className="col-sm-12 col-md-3 col-lg-3">
-                <img className="why-icons" src={ReviewsIcon} />
+                <img className="why-icons" src={ReviewsIcon} alt="review"/>
                 <p className="why-icons-p"> Leave reviews </p>
             </div>
         </div>
@@ -46,22 +46,22 @@ export default (props) => (
         <div className="row choose-second-row">
 
             <div className="col-sm-12 col-md-3 col-lg-3">
-                <img className="why-icons-second-row first-icon-second-row" src={MomIcon} />
+                <img className="why-icons-second-row first-icon-second-row" src={MomIcon} alt="mom"/>
                 <p className="why-icons-p">You will <br /> be able to :</p>
             </div>
 
             <div className="col-sm-12 col-md-3 col-lg-3">
-                <img className="why-icons-second-row" src={HouseIcon} />
+                <img className="why-icons-second-row" src={HouseIcon} alt="house"/>
                 <p className="why-icons-p"> Manage your kid's <br /> account in your <br /> dashboard </p>
             </div>
 
             <div className="col-sm-12 col-md-3 col-lg-3">
-                <img className="why-icons-second-row" src={CalendarIcon} />
+                <img className="why-icons-second-row" src={CalendarIcon} alt="calendar"/>
                 <p className="why-icons-p"> Set the weekly <br /> Screen Time <br /> & Bed Time </p>
             </div>
 
             <div className="col-sm-12 col-md-3 col-lg-3">
-                <img className="why-icons-second-row" src={ChartsIcon} />
+                <img className="why-icons-second-row" src={ChartsIcon} alt="chart"/>
                 <p className="why-icons-p"> See your kid's <br /> activity charts </p>
             </div>
         </div>

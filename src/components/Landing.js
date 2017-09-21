@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LandingSectionOne from './LandingSectionOne'
 import LandingSectionTwo from './LandingSectionTwo'
 import Logo from '../assets/images/screentime_final.gif'
