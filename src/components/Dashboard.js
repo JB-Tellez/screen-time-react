@@ -4,7 +4,6 @@ import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
 import KidDetails from './KidDetails'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom'
 import * as familyActions from '../actions/familyActions';
 import IconOne from '../assets/images/little-girl-icon.png'
 import IconTwo from '../assets/images/teen-boy-icon.png'
