@@ -28,7 +28,11 @@ function PrivateRoute({ component: Component, authed, ...rest }) {
   )
 }
 
+
+
 class App extends Component {
+
+ 
 
   constructor(props) {
     super(props)
@@ -41,6 +45,27 @@ class App extends Component {
     this.kidSelected = this.kidSelected.bind(this)
     this.brandClickHandler = this.brandClickHandler.bind(this)
   }
+
+  getMenuProps() {
+    
+        return {
+          loggedIn: this.loggedIn(),
+          login: this.gotoLoginHandler,
+          logout: this.logoutHandler,
+          brandClickHandler: this.brandClickHandler,
+          selectedKid: this.getSelectedKid(),
+          ...this.props
+        }
+      }
+
+      getSelectedKid() {
+
+        if (this.props.family && this.props.family.selectedKidId) {
+          return this.props.family.children.find( kid => kid.id === this.props.family.selectedKidId)
+        }
+
+        return null
+      }
 
   loggedIn() {
     return this.props.auth.loggedIn
@@ -99,7 +124,7 @@ class App extends Component {
         <div className="stars">
           <div className="twinkling">
             <div className="App">
-              <Menu loggedIn={this.loggedIn()} login={this.gotoLoginHandler} logout={this.logoutHandler} brandClickHandler={this.brandClickHandler} {...this.props} />
+              <Menu {...this.getMenuProps()} />
               <Route path="/" exact component={props => <Landing gotoRegisterHandler={this.gotoRegisterHandler} />} />
               <Route path="/login" render={props => <Login {...this.getLoginProps()} {...props} />} />
               <Route path="/register" render={props => <Login {...this.getLoginProps(false)} {...props} />} />

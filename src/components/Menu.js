@@ -4,6 +4,7 @@ import './Menu.css'
 import { Button } from 'reactstrap';
 import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap';
 import Logo from '../assets/images/xs-screentime-logo.png'
+import moment from 'moment'
 
 
 export default class Menu extends React.Component {
@@ -30,20 +31,25 @@ export default class Menu extends React.Component {
                     <NavbarBrand onClick={this.props.brandClickHandler}>
                         <img src={Logo} alt="screentime logo" className="logo-navbar-landing" />
                     </NavbarBrand>
-                    <Nav className="ml-auto" navbar>
+                    <Nav className="ml-auto" navbarx>
+
+                        {this.props.selectedKid &&
+                            <NavItem>
+                                {this.props.selectedKid.name} - 
+                            
+                                {moment(this.props.selectedKid.bedtimes[moment().weekday()]).format('h:mm a')}
+                            </NavItem>
+                        }
+
                         <NavItem>
                             {this.props.loggedIn ? (
                                 <Button className="login-btn" onClick={this.logout}>Log out</Button>
                             ) : (
                                     <Button className="login-btn" onClick={this.login}>Log in</Button>
-                            )}
+                                )}
                         </NavItem>
 
-                        {/* {this.props.family &&
-                            <NavItem>
-                                {this.props.family.selectedKidId}
-                            </NavItem>
-                        } */}
+
                     </Nav>
                 </Navbar>
             </div>
@@ -71,5 +77,6 @@ Menu.propTypes = {
     loggedIn: PropTypes.bool,
     login: PropTypes.func,
     logout: PropTypes.func,
-    brandClickHandler: PropTypes.func
+    brandClickHandler: PropTypes.func,
+    selectedKid: PropTypes.object
 };
