@@ -1,3 +1,10 @@
+# ScreenTime
+## React port of Angular 4 project
+
+
+[Demo] (https://jb-tellez.github.io/screen-time-react)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
