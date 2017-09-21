@@ -27,7 +27,7 @@ export default class Menu extends React.Component {
 
             <div className="Menu">
                 <Navbar className="navbar-dark bg-dark">
-                    <NavbarBrand href="/">
+                    <NavbarBrand onClick={this.props.brandClickHandler}>
                         <img src={Logo} alt="screentime logo" className="logo-navbar-landing" />
                     </NavbarBrand>
                     <Nav className="ml-auto" navbar>
@@ -70,5 +70,6 @@ export default class Menu extends React.Component {
 Menu.propTypes = {
     loggedIn: PropTypes.bool,
     login: PropTypes.func,
-    logout: PropTypes.func
+    logout: PropTypes.func,
+    brandClickHandler: PropTypes.func
 };

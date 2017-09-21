@@ -39,6 +39,7 @@ class App extends Component {
     this.gotoRegisterHandler = this.gotoRegisterHandler.bind(this)
     this.registerHandler = this.registerHandler.bind(this)
     this.kidSelected = this.kidSelected.bind(this)
+    this.brandClickHandler = this.brandClickHandler.bind(this)
   }
 
   loggedIn() {
@@ -68,6 +69,10 @@ class App extends Component {
     this.props.familyActions.kidSelected(kid)
   }
 
+  brandClickHandler() {
+    this.props.history.push('/')
+  }
+
   getKid(id) {
     return this.props.family && this.props.family.children.find(kid => kid.id === id)
   }
@@ -94,7 +99,7 @@ class App extends Component {
         <div className="stars">
           <div className="twinkling">
             <div className="App">
-              <Menu loggedIn={this.loggedIn()} login={this.gotoLoginHandler} logout={this.logoutHandler} {...this.props} />
+              <Menu loggedIn={this.loggedIn()} login={this.gotoLoginHandler} logout={this.logoutHandler} brandClickHandler={this.brandClickHandler} {...this.props} />
               <Route path="/" exact component={props => <Landing gotoRegisterHandler={this.gotoRegisterHandler} />} />
               <Route path="/login" render={props => <Login {...this.getLoginProps()} {...props} />} />
               <Route path="/register" render={props => <Login {...this.getLoginProps(false)} {...props} />} />
