@@ -1,0 +1,16 @@
+/* TIMEPICK TABLE */
+.bedtime-sel-container {
+    border: 2px dotted #0CB49B;    
+    margin: 0 auto;
+    padding: 20px;
+}
+.timepick {
+    width: 200px;
+    /* border: 1px dotted #6CBC82;  */
+    margin: 0 auto;   
+    float: left;
+}
+
+.timepick-p {
+    color: #4CC1FC;
+}
