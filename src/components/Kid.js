@@ -3,10 +3,9 @@ import axios from 'axios'
 import Movie from './Movie'
 import WatchIcon from '../assets/images/movie.png'
 import MovieSlider from './MovieSlider'
+import { getMoviesPath, getMoviePath } from '../utils/MovieUtils'
 
 export default class Kids extends Component {
-
-    API_KEY = '3f3798b4fab8a9e67c465bd2347d06a6';
 
     state = { movies: [], movie: null }
 
@@ -19,16 +18,12 @@ export default class Kids extends Component {
 
     getMovies() {
 
-        const url = `https://api.themoviedb.org/3/movie/283995/similar?api_key=${this.API_KEY}&language=en-US&page=1`;
-
-        return axios.get(url)
+        return axios.get(getMoviesPath())
     }
 
     getMovie(id) {
 
-        const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${this.API_KEY}&language=en-US`;
-        
-        return axios.get(url);
+        return axios.get(getMoviePath(id));
     }
 
 
